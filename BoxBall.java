@@ -27,24 +27,52 @@ public class BoxBall
 
     /**
      * Constructor for objects of class BoxBall
+     * 
+     * @param groundPos, leftPos, topPos, rightPos positions of the walls
+     * @param drawingCanvas
      */
-    public BoxBall(int ballDiameter, int groundPos, int leftPos, int topPos, int rightPos,
+    public BoxBall(int groundPos, int leftPos, int topPos, int rightPos,
                     Canvas drawingCanvas)                    
     {
         // initialise instance variables
-        diameter = ballDiameter;
-        //color = ballColor;        
+        //diameter = ballDiameter;       
         groundPosition = groundPos;
         leftWallPosition = leftPos;
         topWallPosition = topPos;
         rightWallPosition = rightPos;
         canvas = drawingCanvas;
         Random rand = new Random();
+        diameter = rand.nextInt(16) + 10;
         xPosition = rand.nextInt(rightWallPosition - diameter - leftWallPosition) + 1 + leftWallPosition;
-        yPosition = rand.nextInt(groundPosition - topWallPosition) + 1 + topWallPosition;
+        yPosition = rand.nextInt(groundPosition - diameter - topWallPosition) + 1 + topWallPosition;
+        ySpeed = rand.nextInt(15) -7;
+        if(ySpeed == 0) {ySpeed = 7;}
+        xSpeed = rand.nextInt(15) -7;
+        if(xSpeed == 0) {xSpeed = 7;}
+        color = new Color(rand.nextInt(200), rand.nextInt(200), rand.nextInt(200));
+    }
+    
+    /**
+     * Constructor for objects of class BoxBall
+     * @param ballDiameter how big should the ball be
+     */
+    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor, int groundPos, int leftPos,
+                   int topPos, int rightPos,  Canvas drawingCanvas)                    
+    {
+        // initialise instance variables
+        xPosition = xPos;
+        yPosition = yPos;
+        diameter = ballDiameter;
+        color = ballColor;        
+        groundPosition = groundPos;
+        leftWallPosition = leftPos;
+        topWallPosition = topPos;
+        rightWallPosition = rightPos;
+        canvas = drawingCanvas;
+        
+        Random rand = new Random();
         ySpeed = rand.nextInt(7) + 1;
         xSpeed = rand.nextInt(7) + 1;
-        color = new Color(rand.nextInt(200), rand.nextInt(200), rand.nextInt(200));
     }
 
     /**
