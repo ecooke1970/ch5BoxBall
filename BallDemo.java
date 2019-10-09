@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.util.ArrayList;
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -59,20 +60,22 @@ public class BallDemo
       */
      public void boxBounce(int numberOfBalls)
      {
-         int verticalSide = 400;
-         int horizontalSide = 500;
+
          
          myCanvas.setVisible(true);
-         
+         Dimension size = myCanvas.getSize();
+         System.out.println(size.getWidth() + " X " + size.getHeight());
+         int verticalSide = (int)size.getHeight();
+         int horizontalSide = (int)size.getWidth();
          //draw the box
          //bottom line
-         myCanvas.drawLine(50, verticalSide + 50, horizontalSide + 50, verticalSide + 50);
+         myCanvas.drawLine(10, verticalSide - 10, horizontalSide - 10, verticalSide - 10);
          //left side
-         myCanvas.drawLine(50, 50, 50, verticalSide + 50);
+         myCanvas.drawLine(10, 10, 10, verticalSide - 10);
          //top line
-         myCanvas.drawLine(50, 50, horizontalSide + 50, 50);
+         myCanvas.drawLine(10, 10, horizontalSide - 10, 10);
          //right side
-         myCanvas.drawLine(horizontalSide + 50, 50, horizontalSide + 50, verticalSide + 50);
+         myCanvas.drawLine(horizontalSide - 10, 10, horizontalSide - 10, verticalSide - 10);
          
          ArrayList<BoxBall> boxBall = new ArrayList<BoxBall>();
          for(int i = numberOfBalls;i >0;i--) {
