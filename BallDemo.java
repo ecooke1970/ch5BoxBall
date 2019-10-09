@@ -53,4 +53,35 @@ public class BallDemo
             }
         }
     }
+    
+     /**
+      * Draws a box and then creates a ball to bounce around inside
+      */
+     public void boxBounce()
+     {
+         int verticalSide = 400;
+         int horizontalSide = 500;
+         
+         myCanvas.setVisible(true);
+         
+         //draw the box
+         //bottom line
+         myCanvas.drawLine(50, verticalSide + 50, horizontalSide + 50, verticalSide + 50);
+         //left side
+         myCanvas.drawLine(50, 50, 50, verticalSide + 50);
+         //top line
+         myCanvas.drawLine(50, 50, horizontalSide + 50, 50);
+         //right side
+         myCanvas.drawLine(horizontalSide + 50, 50, horizontalSide + 50, verticalSide + 50);
+         
+         BoxBall ball = new BoxBall(100, 420, 20, Color.BLUE, 450, 50, 50, 550, myCanvas);
+         ball.draw();
+         
+         // make ball move
+         boolean finished = false;
+         while(!finished) {
+             myCanvas.wait(50);
+             ball.move();
+         }
+     }
 }
