@@ -1,5 +1,5 @@
 import java.awt.Color;
-
+import java.util.ArrayList;
 /**
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
@@ -57,7 +57,7 @@ public class BallDemo
      /**
       * Draws a box and then creates a ball to bounce around inside
       */
-     public void boxBounce()
+     public void boxBounce(int numberOfBalls)
      {
          int verticalSide = 400;
          int horizontalSide = 500;
@@ -74,14 +74,20 @@ public class BallDemo
          //right side
          myCanvas.drawLine(horizontalSide + 50, 50, horizontalSide + 50, verticalSide + 50);
          
-         BoxBall ball = new BoxBall(100, 420, 20, Color.BLUE, 450, 50, 50, 550, myCanvas);
-         ball.draw();
+         ArrayList<BoxBall> boxBall = new ArrayList<BoxBall>();
+         for(int i = numberOfBalls;i >0;i--) {
+             BoxBall ball = new BoxBall(20, Color.BLUE, 450, 50, 50, 550, myCanvas);
+             ball.draw();
+             boxBall.add(ball);
+         }
          
          // make ball move
          boolean finished = false;
          while(!finished) {
              myCanvas.wait(50);
-             ball.move();
+             for(BoxBall ball : boxBall){
+                 ball.move();
+             }
          }
      }
 }

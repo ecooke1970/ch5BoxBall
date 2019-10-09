@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=BoxBall
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ BoxBall\ here.\r\n\r\n\ @author\ Erik\ Cooke\r\n\ @version\ 10.8.2019\r\n
-comment1.params=xPos\ yPos\ ballDiameter\ ballColor\ groundPos\ leftPos\ topPos\ rightPos\ drawingCanvas
-comment1.target=BoxBall(int,\ int,\ int,\ java.awt.Color,\ int,\ int,\ int,\ int,\ Canvas)
+comment1.params=ballDiameter\ ballColor\ groundPos\ leftPos\ topPos\ rightPos\ drawingCanvas
+comment1.target=BoxBall(int,\ java.awt.Color,\ int,\ int,\ int,\ int,\ Canvas)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BoxBall\r\n
 comment2.params=
 comment2.target=void\ draw()

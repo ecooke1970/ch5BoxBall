@@ -1,6 +1,6 @@
 import java.awt.Color;
 import java.awt.geom.*;
-//import java.lang.Random;
+import java.util.Random;
 
 /**
  * Write a description of class BoxBall here.
@@ -20,7 +20,7 @@ public class BoxBall
     private final int leftWallPosition;
     private final int topWallPosition;
     private final int rightWallPosition;
-    private Canvas canvas;
+    private Canvas canvas;    
     private int ySpeed;
     private int xSpeed;
     
@@ -28,13 +28,11 @@ public class BoxBall
     /**
      * Constructor for objects of class BoxBall
      */
-    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor,
+    public BoxBall(int ballDiameter, Color ballColor,
                     int groundPos, int leftPos, int topPos, int rightPos,
                     Canvas drawingCanvas)                    
     {
         // initialise instance variables
-        xPosition = xPos;
-        yPosition = yPos;
         diameter = ballDiameter;
         color = ballColor;        
         groundPosition = groundPos;
@@ -42,8 +40,11 @@ public class BoxBall
         topWallPosition = topPos;
         rightWallPosition = rightPos;
         canvas = drawingCanvas;
-        ySpeed = 3;
-        xSpeed = 3;
+        Random rand = new Random();
+        xPosition = rand.nextInt(rightWallPosition - leftWallPosition) + 1 + leftWallPosition;
+        yPosition = rand.nextInt(groundPosition - topWallPosition) + 1 + topWallPosition;
+        ySpeed = rand.nextInt(7) + 1;
+        xSpeed = rand.nextInt(7) + 1;
     }
 
     /**
@@ -89,6 +90,10 @@ public class BoxBall
         if(xPosition >= (rightWallPosition - diameter)) {
             xPosition = (int)(rightWallPosition - diameter);
             xSpeed = (xSpeed -(xSpeed * 2));
+        }
+        else if(xPosition <= (leftWallPosition + 1)) {
+            xPosition = (int)(leftWallPosition + 1);
+            xSpeed = (xSpeed - (xSpeed * 2));
         }
         
         //draw again at new position
