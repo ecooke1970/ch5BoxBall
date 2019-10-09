@@ -76,7 +76,7 @@ public class BallDemo
          
          ArrayList<BoxBall> boxBall = new ArrayList<BoxBall>();
          for(int i = numberOfBalls;i >0;i--) {
-             BoxBall ball = new BoxBall(20, Color.BLUE, 450, 50, 50, 550, myCanvas);
+             BoxBall ball = new BoxBall(20, 450, 50, 50, 550, myCanvas);
              ball.draw();
              boxBall.add(ball);
          }

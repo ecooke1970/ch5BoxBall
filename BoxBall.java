@@ -28,23 +28,23 @@ public class BoxBall
     /**
      * Constructor for objects of class BoxBall
      */
-    public BoxBall(int ballDiameter, Color ballColor,
-                    int groundPos, int leftPos, int topPos, int rightPos,
+    public BoxBall(int ballDiameter, int groundPos, int leftPos, int topPos, int rightPos,
                     Canvas drawingCanvas)                    
     {
         // initialise instance variables
         diameter = ballDiameter;
-        color = ballColor;        
+        //color = ballColor;        
         groundPosition = groundPos;
         leftWallPosition = leftPos;
         topWallPosition = topPos;
         rightWallPosition = rightPos;
         canvas = drawingCanvas;
         Random rand = new Random();
-        xPosition = rand.nextInt(rightWallPosition - leftWallPosition) + 1 + leftWallPosition;
+        xPosition = rand.nextInt(rightWallPosition - diameter - leftWallPosition) + 1 + leftWallPosition;
         yPosition = rand.nextInt(groundPosition - topWallPosition) + 1 + topWallPosition;
         ySpeed = rand.nextInt(7) + 1;
         xSpeed = rand.nextInt(7) + 1;
+        color = new Color(rand.nextInt(200), rand.nextInt(200), rand.nextInt(200));
     }
 
     /**
