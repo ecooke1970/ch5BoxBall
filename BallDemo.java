@@ -56,30 +56,31 @@ public class BallDemo
     }
     
      /**
-      * Draws a box and then creates a ball to bounce around inside
+      * Draws a box based on the size of the canvas
+      * and then creates a number of balls to bounce around inside
+      * @param numberOfBalls how many balls to spawn in the box
       */
      public void boxBounce(int numberOfBalls)
-     {
-
-         
+     {          
          myCanvas.setVisible(true);
-         Dimension size = myCanvas.getSize();
-         System.out.println(size.getWidth() + " X " + size.getHeight());
-         int verticalSide = (int)size.getHeight();
-         int horizontalSide = (int)size.getWidth();
+         
+         int buffer = 10;
+         Dimension size = myCanvas.getSize();         
+         int verticalSide = (int)size.getHeight() - buffer;
+         int horizontalSide = (int)size.getWidth() - buffer;
          //draw the box
          //bottom line
-         myCanvas.drawLine(10, verticalSide - 10, horizontalSide - 10, verticalSide - 10);
+         myCanvas.drawLine(buffer, verticalSide, horizontalSide, verticalSide);
          //left side
-         myCanvas.drawLine(10, 10, 10, verticalSide - 10);
+         myCanvas.drawLine(buffer, buffer, buffer, verticalSide);
          //top line
-         myCanvas.drawLine(10, 10, horizontalSide - 10, 10);
+         myCanvas.drawLine(buffer, buffer, horizontalSide, buffer);
          //right side
-         myCanvas.drawLine(horizontalSide - 10, 10, horizontalSide - 10, verticalSide - 10);
+         myCanvas.drawLine(horizontalSide, buffer, horizontalSide, verticalSide);
          
          ArrayList<BoxBall> boxBall = new ArrayList<BoxBall>();
          for(int i = numberOfBalls;i >0;i--) {
-             BoxBall ball = new BoxBall(450, 50, 50, 550, myCanvas);
+             BoxBall ball = new BoxBall(verticalSide, buffer, buffer, horizontalSide, myCanvas);
              ball.draw();
              boxBall.add(ball);
          }

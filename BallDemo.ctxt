@@ -9,5 +9,5 @@ comment2.target=void\ bounce()
 comment2.text=\r\n\ Simulate\ two\ bouncing\ balls\r\n
 comment3.params=numberOfBalls
 comment3.target=void\ boxBounce(int)
-comment3.text=\r\n\ Draws\ a\ box\ and\ then\ creates\ a\ ball\ to\ bounce\ around\ inside\r\n
+comment3.text=\r\n\ Draws\ a\ box\ based\ on\ the\ size\ of\ the\ canvas\r\n\ and\ then\ creates\ a\ number\ of\ balls\ to\ bounce\ around\ inside\r\n\ @param\ numberOfBalls\ how\ many\ balls\ to\ spawn\ in\ the\ box\r\n
 numComments=4
