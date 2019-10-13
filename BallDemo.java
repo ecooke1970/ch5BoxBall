@@ -93,8 +93,8 @@ public class BallDemo
              int ySpeed = rand.nextInt(15) -7; 
              if(ySpeed == 0) {ySpeed = 7;}  //speed can't be 0
              //random ballcolor
-             Color ballColor = new Color(rand.nextInt(200), rand.nextInt(200), rand.nextInt(200));
-             //Generate a new ball then draw it then add it to the ArrayList boxBall
+             Color ballColor = new Color(rand.nextInt(201), rand.nextInt(201), rand.nextInt(201));
+             //Generate a new ball, draw it then add it to the ArrayList boxBall
              BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor,
                                         outerBottom, outerLeft, outerTop, outerRight,
                                         myCanvas, xSpeed, ySpeed);                                        
@@ -102,7 +102,7 @@ public class BallDemo
              boxBall.add(ball);
          }
          
-         // make ball move
+         // make ball(s) move
          boolean finished = false;
          while(!finished) {
              myCanvas.wait(50);
