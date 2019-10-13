@@ -22,57 +22,27 @@ public class BoxBall
     private final int rightWallPosition;
     private Canvas canvas;    
     private int ySpeed;
-    private int xSpeed;
-    
-
-    /**
-     * Constructor for objects of class BoxBall
-     * 
-     * @param groundPos, leftPos, topPos, rightPos positions of the walls
-     * @param drawingCanvas
-     */
-    public BoxBall(int groundPos, int leftPos, int topPos, int rightPos,
-                    Canvas drawingCanvas)                    
-    {
-        // initialise instance variables
-        //diameter = ballDiameter;       
-        groundPosition = groundPos;
-        leftWallPosition = leftPos;
-        topWallPosition = topPos;
-        rightWallPosition = rightPos;
-        canvas = drawingCanvas;
-        Random rand = new Random();
-        diameter = rand.nextInt(16) + 10;
-        xPosition = rand.nextInt(rightWallPosition - diameter - leftWallPosition) + 1 + leftWallPosition;
-        yPosition = rand.nextInt(groundPosition - diameter - topWallPosition) + 1 + topWallPosition;
-        ySpeed = rand.nextInt(15) -7;
-        if(ySpeed == 0) {ySpeed = 7;}
-        xSpeed = rand.nextInt(15) -7;
-        if(xSpeed == 0) {xSpeed = 7;}
-        color = new Color(rand.nextInt(200), rand.nextInt(200), rand.nextInt(200));
-    }
-    
+    private int xSpeed;    
     /**
      * Constructor for objects of class BoxBall
      * @param ballDiameter how big should the ball be
      */
-    public BoxBall(int xPos, int yPos, int ballDiameter, Color ballColor, int groundPos, int leftPos,
-                   int topPos, int rightPos,  Canvas drawingCanvas)                    
+    public BoxBall(int xPosition, int yPosition, int diameter, Color ballColor,
+                   int groundPosition, int leftWallPosition, int topWallPosition,
+                   int rightWallPosition,  Canvas drawingCanvas, int xSpeed, int ySpeed)                    
     {
         // initialise instance variables
-        xPosition = xPos;
-        yPosition = yPos;
-        diameter = ballDiameter;
+        this.xPosition = xPosition;
+        this.yPosition = yPosition;
+        this.diameter = diameter;
         color = ballColor;        
-        groundPosition = groundPos;
-        leftWallPosition = leftPos;
-        topWallPosition = topPos;
-        rightWallPosition = rightPos;
-        canvas = drawingCanvas;
-        
-        Random rand = new Random();
-        ySpeed = rand.nextInt(7) + 1;
-        xSpeed = rand.nextInt(7) + 1;
+        this.groundPosition = groundPosition;
+        this.leftWallPosition = leftWallPosition;
+        this.topWallPosition = topWallPosition;
+        this.rightWallPosition = rightWallPosition;
+        canvas = drawingCanvas;    
+        this.xSpeed = xSpeed;
+        this.ySpeed = ySpeed;        
     }
 
     /**

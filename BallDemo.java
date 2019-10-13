@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
@@ -78,9 +80,24 @@ public class BallDemo
          //right side
          myCanvas.drawLine(horizontalSide, buffer, horizontalSide, verticalSide);
          
+         Random rand = new Random();
+
          ArrayList<BoxBall> boxBall = new ArrayList<BoxBall>();
-         for(int i = numberOfBalls;i >0;i--) {
-             BoxBall ball = new BoxBall(verticalSide, buffer, buffer, horizontalSide, myCanvas);
+         
+         for(int i = numberOfBalls;i > 0;i--) {
+             int diameter = rand.nextInt(16) + 10; //random number between 10 and 25 pixels for ball diameter
+             int xPosition = rand.nextInt(horizontalSide - diameter - buffer) + 1 + buffer; //random int for the x position inside of box
+             int yPosition = rand.nextInt(verticalSide - diameter - buffer) + 1 + buffer;  //random int for the y position inside of box
+             //random number from -7 to 7 for the starting speed of the ball
+             int xSpeed = rand.nextInt(15) -7;
+             if(xSpeed == 0) {xSpeed = 7;} //speed can't be 0
+             int ySpeed = rand.nextInt(15) -7; 
+             if(ySpeed == 0) {ySpeed = 7;}  //speed can't be 0
+             //random ballcolor
+             Color ballColor = new Color(rand.nextInt(200), rand.nextInt(200), rand.nextInt(200));
+             //Generate a new ball then draw it then add it to the ArrayList boxBall
+             BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor, verticalSide, buffer, buffer,
+                                        horizontalSide, myCanvas, xSpeed, ySpeed);
              ball.draw();
              boxBall.add(ball);
          }
