@@ -66,19 +66,22 @@ public class BallDemo
      {          
          myCanvas.setVisible(true);
          
-         int buffer = 10;
-         Dimension size = myCanvas.getSize();         
-         int verticalSide = (int)size.getHeight() - buffer;
-         int horizontalSide = (int)size.getWidth() - buffer;
-         //draw the box
-         //bottom line
-         myCanvas.drawLine(buffer, verticalSide, horizontalSide, verticalSide);
-         //left side
-         myCanvas.drawLine(buffer, buffer, buffer, verticalSide);
-         //top line
-         myCanvas.drawLine(buffer, buffer, horizontalSide, buffer);
-         //right side
-         myCanvas.drawLine(horizontalSide, buffer, horizontalSide, verticalSide);
+         //draw outer box
+         int buffer = 10; //int for space around box
+         Dimension size = myCanvas.getSize();
+         int outerLeft = buffer;
+         int outerTop = buffer;
+         int outerRight = (int)size.getWidth() - buffer;
+         int outerBottom = (int)size.getHeight() - buffer;
+         drawBox(outerLeft, outerTop, outerRight, outerBottom);
+         
+         //draw inner box
+         // int innerBox = 50; //int for half the inner box size
+         // int innerLeft = (int)size.getWidth() / 2 - innerBox;
+         // int innerTop = (int)size.getHeight() / 2 - innerBox;
+         // int innerRight = innerBox * 2 + innerLeft;
+         // int innerBottom = innerBox * 2 + innerTop;
+         // drawBox(innerLeft, innerTop, innerRight, innerBottom);
          
          Random rand = new Random();
 
@@ -86,8 +89,8 @@ public class BallDemo
          
          for(int i = numberOfBalls;i > 0;i--) {
              int diameter = rand.nextInt(16) + 10; //random number between 10 and 25 pixels for ball diameter
-             int xPosition = rand.nextInt(horizontalSide - diameter - buffer) + 1 + buffer; //random int for the x position inside of box
-             int yPosition = rand.nextInt(verticalSide - diameter - buffer) + 1 + buffer;  //random int for the y position inside of box
+             int xPosition = rand.nextInt(outerRight - diameter - outerLeft) + 1 + outerLeft; //random int for the x position inside of box
+             int yPosition = rand.nextInt(outerBottom - diameter - outerTop) + 1 + outerTop;  //random int for the y position inside of box
              //random number from -7 to 7 for the starting speed of the ball
              int xSpeed = rand.nextInt(15) -7;
              if(xSpeed == 0) {xSpeed = 7;} //speed can't be 0
@@ -96,8 +99,11 @@ public class BallDemo
              //random ballcolor
              Color ballColor = new Color(rand.nextInt(200), rand.nextInt(200), rand.nextInt(200));
              //Generate a new ball then draw it then add it to the ArrayList boxBall
-             BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor, verticalSide, buffer, buffer,
-                                        horizontalSide, myCanvas, xSpeed, ySpeed);
+             BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor, outerBottom, outerLeft, outerTop,
+                                        outerRight, myCanvas, xSpeed, ySpeed);
+             //BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor, outerBottom, outerLeft, outerTop,
+             //                           outerRight, innerBottom, innerLeft, innerRight, innerTop, myCanvas, xSpeed, ySpeed);
+                                        
              ball.draw();
              boxBall.add(ball);
          }
@@ -110,5 +116,17 @@ public class BallDemo
                  ball.move();
              }
          }
-     }
+    }
+    
+    /**
+     * Draws a box on the canvas
+     * @param left, top, right, bottom 
+     * 
+     */
+    private void drawBox(int left, int top, int right, int bottom) {
+         myCanvas.drawLine(left, bottom, right, bottom);//bottom line         
+         myCanvas.drawLine(left, top, left, bottom);//left side         
+         myCanvas.drawLine(left, top, right, top);//top line         
+         myCanvas.drawLine(right, top, right, bottom);//right side
+    }
 }
