@@ -40,24 +40,22 @@ public class BoxBall
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.diameter = diameter;
-        color = ballColor;        
+        color = ballColor;
         this.outerBottom = outerBottom;
         this.outerLeft = outerLeft;
         this.outerTop = outerTop;
         this.outerRight = outerRight;
         this.innerBottom = innerBottom;
-        this.innerLeft = innerLeft;       
+        this.innerLeft = innerLeft;
         this.innerTop = innerTop;
         this.innerRight = innerRight;
-        canvas = drawingCanvas;    
+        canvas = drawingCanvas;
         this.xSpeed = xSpeed;
-        this.ySpeed = ySpeed;        
+        this.ySpeed = ySpeed;
     }
 
     /**
      * Draw this ball at its current position onto the canvas.
-     *
-     * 
      */
     public void draw()
     {
@@ -75,6 +73,7 @@ public class BoxBall
     
     /**
      * Move this ball according to its position and speed and redraw.
+     * Check to see if it has hit a wall
      */
     public void move()
     {
@@ -90,35 +89,35 @@ public class BoxBall
             yPosition = (int)(outerBottom - diameter);
             ySpeed = (ySpeed - (ySpeed * 2));
         }
-        //else if ((yPosition >= (innerTop - diameter) && yPosition < (innerTop - diameter + 10) && xPosition > innerLeft && xPosition < innerRight)) {
-        // yPosition = (int)(innerTop - diameter);
-        // ySpeed = (ySpeed - (ySpeed * 2));
-        // }
+        else if ((yPosition >= (innerTop - diameter) && yPosition <= 250 && xPosition > innerLeft && xPosition < innerRight)) {
+            yPosition = (int)(innerTop - diameter);
+            ySpeed = (ySpeed - (ySpeed * 2));
+        }
         else if(yPosition <= outerTop) {
             yPosition = (int)(outerTop);
             ySpeed = (ySpeed - (ySpeed * 2));           
         }
-        // else if(yPosition <= innerBottom && xPosition > innerLeft && xPosition < innerRight) {
-            // yPosition = (int)(innerBottom);
-            // ySpeed = (ySpeed - (ySpeed * 2));
-        // }
+        else if(yPosition <= innerBottom && yPosition > 250 && xPosition > innerLeft && xPosition < innerRight) {
+            yPosition = (int)(innerBottom);
+            ySpeed = (ySpeed - (ySpeed * 2));
+        }
         
         if(xPosition >= (outerRight - diameter)) {
             xPosition = (int)(outerRight - diameter);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
-        // else if(xPosition >= (innerLeft - diameter) && yPosition > innerTop && yPosition < innerBottom) {
-            // xPosition = (int)(innerLeft - diameter);
-            // xSpeed = (xSpeed - (xSpeed * 2));
-        // }
+        else if(xPosition >= (innerLeft - diameter) && xPosition < 300 && yPosition > innerTop && yPosition < innerBottom) {
+            xPosition = (int)(innerLeft - diameter);
+            xSpeed = (xSpeed - (xSpeed * 2));
+        }
         else if(xPosition <= (outerLeft + 1)) {
             xPosition = (int)(outerLeft + 1);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
-        // else if(xPosition <= innerRight && yPosition > innerTop && yPosition < innerBottom) {
-            // xPosition = (int)(innerRight);
-            // xSpeed = (xSpeed - (xSpeed * 2));
-        // }
+        else if(xPosition <= innerRight && xPosition > 300 && yPosition > innerTop && yPosition < innerBottom) {
+            xPosition = (int)(innerRight + 1);
+            xSpeed = (xSpeed - (xSpeed * 2));
+        }
         //draw again at new position
         draw();
     }
