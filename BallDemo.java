@@ -76,12 +76,12 @@ public class BallDemo
          drawBox(outerLeft, outerTop, outerRight, outerBottom);
          
          //draw inner box
-         // int innerBox = 50; //int for half the inner box size
-         // int innerLeft = (int)size.getWidth() / 2 - innerBox;
-         // int innerTop = (int)size.getHeight() / 2 - innerBox;
-         // int innerRight = innerBox * 2 + innerLeft;
-         // int innerBottom = innerBox * 2 + innerTop;
-         // drawBox(innerLeft, innerTop, innerRight, innerBottom);
+         int innerBox = 50; //int for half the inner box size
+         int innerLeft = (int)size.getWidth() / 2 - innerBox;
+         int innerTop = (int)size.getHeight() / 2 - innerBox;
+         int innerRight = innerBox * 2 + innerLeft;
+         int innerBottom = innerBox * 2 + innerTop;
+         drawBox(innerLeft, innerTop, innerRight, innerBottom);
          
          Random rand = new Random();
 
@@ -99,10 +99,12 @@ public class BallDemo
              //random ballcolor
              Color ballColor = new Color(rand.nextInt(200), rand.nextInt(200), rand.nextInt(200));
              //Generate a new ball then draw it then add it to the ArrayList boxBall
-             BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor, outerBottom, outerLeft, outerTop,
-                                        outerRight, myCanvas, xSpeed, ySpeed);
-             //BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor, outerBottom, outerLeft, outerTop,
-             //                           outerRight, innerBottom, innerLeft, innerRight, innerTop, myCanvas, xSpeed, ySpeed);
+             // BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor, outerBottom, outerLeft, outerTop,
+                                        // outerRight, myCanvas, xSpeed, ySpeed);
+             BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor,
+                                        outerBottom, outerLeft, outerRight, outerTop,
+                                        innerBottom, innerLeft, innerRight, innerTop,
+                                        myCanvas, xSpeed, ySpeed);
                                         
              ball.draw();
              boxBall.add(ball);

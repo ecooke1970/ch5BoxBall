@@ -16,14 +16,14 @@ public class BoxBall
     private int diameter;
     private int xPosition;
     private int yPosition;
-    private final int groundPosition;
-    private final int leftWallPosition;
-    private final int topWallPosition;
-    private final int rightWallPosition;
-    // private final int innerBottom;
-    // private final int innerLeft;
-    // private final int innerTop;
-    // private final int innerRight;
+    private final int outerBottom;
+    private final int outerLeft;
+    private final int outerTop;
+    private final int outerRight;
+    private final int innerBottom;
+    private final int innerLeft;
+    private final int innerTop;
+    private final int innerRight;
     private Canvas canvas;    
     private int ySpeed;
     private int xSpeed;    
@@ -32,22 +32,23 @@ public class BoxBall
      * @param ballDiameter how big should the ball be
      */
     public BoxBall(int xPosition, int yPosition, int diameter, Color ballColor,
-                   int groundPosition, int leftWallPosition, int topWallPosition, int rightWallPosition,
-                   Canvas drawingCanvas, int xSpeed, int ySpeed)                    
+                   int outerBottom, int outerLeft, int outerRight, int outerTop,
+                   int innerBottom, int innerLeft, int innerRight, int innerTop,
+                   Canvas drawingCanvas, int xSpeed, int ySpeed)
     {
         // initialise instance variables
         this.xPosition = xPosition;
         this.yPosition = yPosition;
         this.diameter = diameter;
         color = ballColor;        
-        this.groundPosition = groundPosition;
-        this.leftWallPosition = leftWallPosition;
-        this.topWallPosition = topWallPosition;
-        this.rightWallPosition = rightWallPosition;
-        // this.innerBottom = innerBottom;
-        // this.innerLeft = innerLeft;       
-        // this.innerTop = innerTop;
-        // this.innerRight = innerRight;
+        this.outerBottom = outerBottom;
+        this.outerLeft = outerLeft;
+        this.outerTop = outerTop;
+        this.outerRight = outerRight;
+        this.innerBottom = innerBottom;
+        this.innerLeft = innerLeft;       
+        this.innerTop = innerTop;
+        this.innerRight = innerRight;
         canvas = drawingCanvas;    
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;        
@@ -56,7 +57,7 @@ public class BoxBall
     /**
      * Draw this ball at its current position onto the canvas.
      *
-     * @param  color 
+     * 
      */
     public void draw()
     {
@@ -85,16 +86,16 @@ public class BoxBall
         xPosition += xSpeed;
         
         //has it hit anything?
-        if(yPosition >= (groundPosition - diameter)){
-            yPosition = (int)(groundPosition - diameter);
+        if(yPosition >= (outerBottom - diameter)){
+            yPosition = (int)(outerBottom - diameter);
             ySpeed = (ySpeed - (ySpeed * 2));
         }
         //else if ((yPosition >= (innerTop - diameter) && yPosition < (innerTop - diameter + 10) && xPosition > innerLeft && xPosition < innerRight)) {
         // yPosition = (int)(innerTop - diameter);
         // ySpeed = (ySpeed - (ySpeed * 2));
         // }
-        else if(yPosition <= topWallPosition) {
-            yPosition = (int)(topWallPosition);
+        else if(yPosition <= outerTop) {
+            yPosition = (int)(outerTop);
             ySpeed = (ySpeed - (ySpeed * 2));           
         }
         // else if(yPosition <= innerBottom && xPosition > innerLeft && xPosition < innerRight) {
@@ -102,16 +103,16 @@ public class BoxBall
             // ySpeed = (ySpeed - (ySpeed * 2));
         // }
         
-        if(xPosition >= (rightWallPosition - diameter)) {
-            xPosition = (int)(rightWallPosition - diameter);
+        if(xPosition >= (outerRight - diameter)) {
+            xPosition = (int)(outerRight - diameter);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
         // else if(xPosition >= (innerLeft - diameter) && yPosition > innerTop && yPosition < innerBottom) {
             // xPosition = (int)(innerLeft - diameter);
             // xSpeed = (xSpeed - (xSpeed * 2));
         // }
-        else if(xPosition <= (leftWallPosition + 1)) {
-            xPosition = (int)(leftWallPosition + 1);
+        else if(xPosition <= (outerLeft + 1)) {
+            xPosition = (int)(outerLeft + 1);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
         // else if(xPosition <= innerRight && yPosition > innerTop && yPosition < innerBottom) {

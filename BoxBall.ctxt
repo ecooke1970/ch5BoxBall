@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=BoxBall
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ BoxBall\ here.\r\n\r\n\ @author\ Erik\ Cooke\r\n\ @version\ 10.8.2019\r\n
-comment1.params=xPosition\ yPosition\ diameter\ ballColor\ groundPosition\ leftWallPosition\ topWallPosition\ rightWallPosition\ drawingCanvas\ xSpeed\ ySpeed
-comment1.target=BoxBall(int,\ int,\ int,\ java.awt.Color,\ int,\ int,\ int,\ int,\ Canvas,\ int,\ int)
+comment1.params=xPosition\ yPosition\ diameter\ ballColor\ outerBottom\ outerLeft\ outerRight\ outerTop\ innerBottom\ innerLeft\ innerRight\ innerTop\ drawingCanvas\ xSpeed\ ySpeed
+comment1.target=BoxBall(int,\ int,\ int,\ java.awt.Color,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ int,\ Canvas,\ int,\ int)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BoxBall\r\n\ @param\ ballDiameter\ how\ big\ should\ the\ ball\ be\r\n
 comment2.params=
 comment2.target=void\ draw()
-comment2.text=\r\n\ Draw\ this\ ball\ at\ its\ current\ position\ onto\ the\ canvas.\r\n\r\n\ @param\ \ color\ \r\n
+comment2.text=\r\n\ Draw\ this\ ball\ at\ its\ current\ position\ onto\ the\ canvas.\r\n\r\n\ \r\n
 comment3.params=
 comment3.target=void\ erase()
 comment3.text=\r\n\ Erase\ this\ ball\ at\ its\ current\ position.\r\n
