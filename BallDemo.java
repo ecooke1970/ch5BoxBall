@@ -7,6 +7,9 @@ import java.util.Random;
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
  *
+ *@author Erik Cooke
+ *@version 2019.10.8
+ *
  * @author Bill Crosbie
  * @version 2015-March-BB
  *
@@ -14,7 +17,7 @@ import java.util.Random;
  * @version 2011.07.31
  */
 
-public class BallDemo   
+public class BallDemo
 {
     private Canvas myCanvas;
 
@@ -59,7 +62,8 @@ public class BallDemo
     
      /**
       * Draws a box based on the size of the canvas
-      * and then creates a number of balls to bounce around inside
+      * and then creates a number of balls to bounce around inside with random diameter, starting position, speed, and
+      * color
       * @param numberOfBalls how many balls to spawn in the box
       */
      public void boxBounce(int numberOfBalls)
@@ -109,9 +113,11 @@ public class BallDemo
     }
     
     /**
-     * Draws a box on the canvas
-     * @param left, top, right, bottom 
-     * 
+     * Draws a box on the canvas.
+     * @param left location for left side of box
+     * @param top location for top side of box
+     * @param right location for right side of box
+     * @param bottom location for bottom side of box
      */
     private void drawBox(int left, int top, int right, int bottom) {
          myCanvas.drawLine(left, bottom, right, bottom);//bottom line         

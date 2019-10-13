@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=BoxBall
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ BoxBall\ here.\r\n\r\n\ @author\ Erik\ Cooke\r\n\ @version\ 10.8.2019\r\n
-comment1.params=xPosition\ yPosition\ diameter\ ballColor\ outerBottom\ outerLeft\ outerTop\ outerRight\ drawingCanvas\ xSpeed\ ySpeed
+comment0.text=\r\n\ Creates\ a\ ball\ at\ the\ x\ and\ y\ coordinates,\ sets\ its\ color,\ diameter,\ and\ speed.\r\n\ Ball\ can\ be\ moved\ by\ repeated\ calls\ to\ the\ move()\ method\ and\ it\ will\ bounce\ off\ of\ walls\ of\ box.\r\n\r\n\ @author\ Erik\ Cooke\r\n\ @version\ 2019.10.8\r\n\ \r\n
+comment1.params=xPosition\ yPosition\ diameter\ color\ outerBottom\ outerLeft\ outerTop\ outerRight\ canvas\ xSpeed\ ySpeed
 comment1.target=BoxBall(int,\ int,\ int,\ java.awt.Color,\ int,\ int,\ int,\ int,\ Canvas,\ int,\ int)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BoxBall\r\n\ @param\ ballDiameter\ how\ big\ should\ the\ ball\ be\r\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ BoxBall.\r\n\ @param\ xPosition\ starting\ x\ position\ of\ ball.\r\n\ @param\ yPosition\ starting\ y\ position\ of\ ball.\r\n\ @param\ diameter\ sets\ ball\ to\ this\ diameter.\r\n\ @param\ color\ sets\ ball\ to\ this\ color.\r\n\ @param\ outerBottom\ location\ of\ the\ bottom\ line\ for\ the\ outer\ box\ on\ the\ canvas.\r\n\ @param\ outerLeft\ location\ of\ the\ left\ line\ for\ the\ outer\ box\ on\ the\ canvas.\r\n\ @param\ outerTop\ location\ of\ the\ top\ line\ for\ the\ outer\ box\ on\ the\ canvas.\r\n\ @param\ outerRight\ location\ of\ the\ right\ line\ for\ the\ outer\ box\ on\ the\ canvas.\r\n\ @param\ canvas\ holds\ the\ Canvas\ object.\r\n\ @param\ ySpeed\ sets\ the\ amount\ ball\ will\ move\ on\ the\ y\ axis\ with\ each\ tick.\r\n\ @param\ xSpeed\ sets\ the\ amount\ ball\ will\ move\ on\ the\ x\ axis\ with\ each\ tick.\r\n
 comment2.params=
 comment2.target=void\ draw()
-comment2.text=\r\n\ Draw\ this\ ball\ at\ its\ current\ position\ onto\ the\ canvas.\r\n\r\n\ @param\ \ color\ \r\n
+comment2.text=\r\n\ Draw\ this\ ball\ at\ its\ current\ position\ onto\ the\ canvas.\r\n
 comment3.params=
 comment3.target=void\ erase()
 comment3.text=\r\n\ Erase\ this\ ball\ at\ its\ current\ position.\r\n
 comment4.params=
 comment4.target=void\ move()
-comment4.text=\r\n\ Move\ this\ ball\ according\ to\ its\ position\ and\ speed\ and\ redraw.\r\n
+comment4.text=\r\n\ Move\ this\ ball\ according\ to\ its\ position\ and\ speed\ and\ redraw.\r\n\ If\ it\ hits\ a\ wall\ make\ it\ bounce\ off.\r\n
 numComments=5
