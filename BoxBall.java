@@ -89,7 +89,7 @@ public class BoxBall
             yPosition = (int)(outerBottom - diameter);
             ySpeed = (ySpeed - (ySpeed * 2));
         }
-        else if ((yPosition >= (innerTop - diameter) && yPosition <= 250 && xPosition > innerLeft && xPosition < innerRight)) {
+        else if ((yPosition >= (innerTop - diameter) && yPosition <= (innerTop + ySpeed + 1) && xPosition > innerLeft && xPosition < innerRight)) {
             yPosition = (int)(innerTop - diameter);
             ySpeed = (ySpeed - (ySpeed * 2));
         }
@@ -97,7 +97,7 @@ public class BoxBall
             yPosition = (int)(outerTop);
             ySpeed = (ySpeed - (ySpeed * 2));           
         }
-        else if(yPosition <= innerBottom && yPosition > 250 && xPosition > innerLeft && xPosition < innerRight) {
+        else if(yPosition <= innerBottom && yPosition > (innerBottom - ySpeed -1) && xPosition > innerLeft && xPosition < innerRight) {
             yPosition = (int)(innerBottom);
             ySpeed = (ySpeed - (ySpeed * 2));
         }
@@ -106,7 +106,7 @@ public class BoxBall
             xPosition = (int)(outerRight - diameter);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
-        else if(xPosition >= (innerLeft - diameter) && xPosition < 300 && yPosition > innerTop && yPosition < innerBottom) {
+        else if(xPosition >= (innerLeft - diameter) && xPosition < (innerLeft + xSpeed + 1) && yPosition > innerTop && yPosition < innerBottom) {
             xPosition = (int)(innerLeft - diameter);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
@@ -114,7 +114,7 @@ public class BoxBall
             xPosition = (int)(outerLeft + 1);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
-        else if(xPosition <= innerRight && xPosition > 300 && yPosition > innerTop && yPosition < innerBottom) {
+        else if(xPosition <= innerRight && xPosition > (innerRight - xSpeed - 1) && yPosition > innerTop && yPosition < innerBottom) {
             xPosition = (int)(innerRight + 1);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
