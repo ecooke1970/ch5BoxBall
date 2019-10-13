@@ -16,10 +16,10 @@ public class BoxBall
     private int diameter;
     private int xPosition;
     private int yPosition;
-    private final int groundPosition;
-    private final int leftWallPosition;
-    private final int topWallPosition;
-    private final int rightWallPosition;
+    private final int outerBottom;
+    private final int outerLeft;
+    private final int outerTop;
+    private final int outerRight;
     private Canvas canvas;    
     private int ySpeed;
     private int xSpeed;    
@@ -28,7 +28,7 @@ public class BoxBall
      * @param ballDiameter how big should the ball be
      */
     public BoxBall(int xPosition, int yPosition, int diameter, Color ballColor,
-                   int groundPosition, int leftWallPosition, int topWallPosition, int rightWallPosition,
+                   int outerBottom, int outerLeft, int outerTop, int outerRight,
                    Canvas drawingCanvas, int xSpeed, int ySpeed)                    
     {
         // initialise instance variables
@@ -36,10 +36,10 @@ public class BoxBall
         this.yPosition = yPosition;
         this.diameter = diameter;
         color = ballColor;        
-        this.groundPosition = groundPosition;
-        this.leftWallPosition = leftWallPosition;
-        this.topWallPosition = topWallPosition;
-        this.rightWallPosition = rightWallPosition;
+        this.outerBottom = outerBottom;
+        this.outerLeft = outerLeft;
+        this.outerTop = outerTop;
+        this.outerRight = outerRight;
         canvas = drawingCanvas;    
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;        
@@ -77,21 +77,21 @@ public class BoxBall
         xPosition += xSpeed;
         
         //has it hit anything?
-        if(yPosition >= (groundPosition - diameter)){
-            yPosition = (int)(groundPosition - diameter);
+        if(yPosition >= (outerBottom - diameter)){
+            yPosition = (int)(outerBottom - diameter);
             ySpeed = (ySpeed - (ySpeed * 2));
         }
-        else if(yPosition <= topWallPosition) {
-            yPosition = (int)(topWallPosition);
+        else if(yPosition <= outerTop) {
+            yPosition = (int)(outerTop);
             ySpeed = (ySpeed - (ySpeed * 2));           
         }
         
-        if(xPosition >= (rightWallPosition - diameter)) {
-            xPosition = (int)(rightWallPosition - diameter);
+        if(xPosition >= (outerRight - diameter)) {
+            xPosition = (int)(outerRight - diameter);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
-        else if(xPosition <= (leftWallPosition + 1)) {
-            xPosition = (int)(leftWallPosition + 1);
+        else if(xPosition <= (outerLeft + 1)) {
+            xPosition = (int)(outerLeft + 1);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
         //draw again at new position

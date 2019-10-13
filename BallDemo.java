@@ -91,11 +91,9 @@ public class BallDemo
              //random ballcolor
              Color ballColor = new Color(rand.nextInt(200), rand.nextInt(200), rand.nextInt(200));
              //Generate a new ball then draw it then add it to the ArrayList boxBall
-             BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor, outerBottom, outerLeft, outerTop,
-                                        outerRight, myCanvas, xSpeed, ySpeed);
-             //BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor, outerBottom, outerLeft, outerTop,
-             //                           outerRight, innerBottom, innerLeft, innerRight, innerTop, myCanvas, xSpeed, ySpeed);
-                                        
+             BoxBall ball = new BoxBall(xPosition, yPosition, diameter, ballColor,
+                                        outerBottom, outerLeft, outerTop, outerRight,
+                                        myCanvas, xSpeed, ySpeed);                                        
              ball.draw();
              boxBall.add(ball);
          }
