@@ -20,10 +20,6 @@ public class BoxBall
     private final int leftWallPosition;
     private final int topWallPosition;
     private final int rightWallPosition;
-    // private final int innerBottom;
-    // private final int innerLeft;
-    // private final int innerTop;
-    // private final int innerRight;
     private Canvas canvas;    
     private int ySpeed;
     private int xSpeed;    
@@ -44,10 +40,6 @@ public class BoxBall
         this.leftWallPosition = leftWallPosition;
         this.topWallPosition = topWallPosition;
         this.rightWallPosition = rightWallPosition;
-        // this.innerBottom = innerBottom;
-        // this.innerLeft = innerLeft;       
-        // this.innerTop = innerTop;
-        // this.innerRight = innerRight;
         canvas = drawingCanvas;    
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;        
@@ -89,35 +81,19 @@ public class BoxBall
             yPosition = (int)(groundPosition - diameter);
             ySpeed = (ySpeed - (ySpeed * 2));
         }
-        //else if ((yPosition >= (innerTop - diameter) && yPosition < (innerTop - diameter + 10) && xPosition > innerLeft && xPosition < innerRight)) {
-        // yPosition = (int)(innerTop - diameter);
-        // ySpeed = (ySpeed - (ySpeed * 2));
-        // }
         else if(yPosition <= topWallPosition) {
             yPosition = (int)(topWallPosition);
             ySpeed = (ySpeed - (ySpeed * 2));           
         }
-        // else if(yPosition <= innerBottom && xPosition > innerLeft && xPosition < innerRight) {
-            // yPosition = (int)(innerBottom);
-            // ySpeed = (ySpeed - (ySpeed * 2));
-        // }
         
         if(xPosition >= (rightWallPosition - diameter)) {
             xPosition = (int)(rightWallPosition - diameter);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
-        // else if(xPosition >= (innerLeft - diameter) && yPosition > innerTop && yPosition < innerBottom) {
-            // xPosition = (int)(innerLeft - diameter);
-            // xSpeed = (xSpeed - (xSpeed * 2));
-        // }
         else if(xPosition <= (leftWallPosition + 1)) {
             xPosition = (int)(leftWallPosition + 1);
             xSpeed = (xSpeed - (xSpeed * 2));
         }
-        // else if(xPosition <= innerRight && yPosition > innerTop && yPosition < innerBottom) {
-            // xPosition = (int)(innerRight);
-            // xSpeed = (xSpeed - (xSpeed * 2));
-        // }
         //draw again at new position
         draw();
     }

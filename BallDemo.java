@@ -75,14 +75,6 @@ public class BallDemo
          int outerBottom = (int)size.getHeight() - buffer;
          drawBox(outerLeft, outerTop, outerRight, outerBottom);
          
-         //draw inner box
-         // int innerBox = 50; //int for half the inner box size
-         // int innerLeft = (int)size.getWidth() / 2 - innerBox;
-         // int innerTop = (int)size.getHeight() / 2 - innerBox;
-         // int innerRight = innerBox * 2 + innerLeft;
-         // int innerBottom = innerBox * 2 + innerTop;
-         // drawBox(innerLeft, innerTop, innerRight, innerBottom);
-         
          Random rand = new Random();
 
          ArrayList<BoxBall> boxBall = new ArrayList<BoxBall>();
