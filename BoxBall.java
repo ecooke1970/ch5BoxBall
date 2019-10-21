@@ -89,7 +89,8 @@ public class BoxBall
             yPosition = (int)(outerBottom - diameter);
             ySpeed = (ySpeed - (ySpeed * 2));
         }
-        else if ((yPosition >= (innerTop - diameter) && yPosition <= (innerTop + ySpeed + 1) && xPosition > innerLeft && xPosition < innerRight)) {
+        else if ((yPosition >= (innerTop - diameter) && yPosition <= (innerTop + ySpeed + 1)
+                  && xPosition > innerLeft && xPosition < innerRight)) {
             yPosition = (int)(innerTop - diameter);
             ySpeed = (ySpeed - (ySpeed * 2));
         }

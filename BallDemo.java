@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Random;
+import java.awt.Rectangle;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -76,17 +77,21 @@ public class BallDemo
          drawBox(outerLeft, outerTop, outerRight, outerBottom);
          
          //draw inner box
-         int innerBox = 50; //int for half the inner box size
+         int innerBox = 100; //int for half the inner box size
+         
          int innerLeft = (int)size.getWidth() / 2 - innerBox;
          int innerTop = (int)size.getHeight() / 2 - innerBox;
          int innerRight = innerBox * 2 + innerLeft;
          int innerBottom = innerBox * 2 + innerTop;
-         drawBox(innerLeft, innerTop, innerRight, innerBottom);
+         //drawBox(innerLeft, innerTop, innerRight, innerBottom);
+         
+         Rectangle box = new Rectangle(innerLeft, innerTop, innerBox * 2, innerBox * 2);
+         Color color = new Color(0,0,0);
+         myCanvas.setForegroundColor(color);
+         myCanvas.fillRectangle(innerLeft, innerTop, innerBox * 2, innerBox * 2);
          
          Random rand = new Random();
-
          ArrayList<BoxBall> boxBall = new ArrayList<BoxBall>();
-         
          for(int i = numberOfBalls;i > 0;i--) {
              int diameter = rand.nextInt(16) + 10; //random number between 10 and 25 pixels for ball diameter
              int xPosition = rand.nextInt(outerRight - diameter - outerLeft) + 1 + outerLeft; //random int for the x position inside of box
