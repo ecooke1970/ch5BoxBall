@@ -7,8 +7,10 @@ import java.util.Random;
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
  *
- *@author Erik Cooke
- *@version 2019.10.8
+ * @author Erik Cooke
+ * @version 2019.10.8
+ * Extra Credit-Each ball given a random size from 10-25 pixels.
+ * Extra Credit-Box is drawn based on size of canvas
  *
  * @author Bill Crosbie
  * @version 2015-March-BB
@@ -81,7 +83,7 @@ public class BallDemo
          
          Random rand = new Random();
 
-         ArrayList<BoxBall> boxBall = new ArrayList<BoxBall>();
+         ArrayList<BoxBall> boxBall = new ArrayList<BoxBall>(numberOfBalls);
          
          for(int i = numberOfBalls;i > 0;i--) {
              int diameter = rand.nextInt(16) + 10; //random number between 10 and 25 pixels for ball diameter
@@ -89,9 +91,9 @@ public class BallDemo
              int yPosition = rand.nextInt(outerBottom - diameter - outerTop) + 1 + outerTop;  //random int for the y position inside of box
              //random number from -7 to 7 for the starting speed of the ball
              int xSpeed = rand.nextInt(15) -7;
-             if(xSpeed == 0) {xSpeed = 7;} //speed can't be 0
+             if(xSpeed == 0) xSpeed = 7; //speed can't be 0
              int ySpeed = rand.nextInt(15) -7; 
-             if(ySpeed == 0) {ySpeed = 7;}  //speed can't be 0
+             if(ySpeed == 0) ySpeed = 7;  //speed can't be 0
              //random ballcolor
              Color ballColor = new Color(rand.nextInt(201), rand.nextInt(201), rand.nextInt(201));
              //Generate a new ball, draw it then add it to the ArrayList boxBall

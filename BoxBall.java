@@ -90,20 +90,20 @@ public class BoxBall
         //has it hit anything?
         if(yPosition >= (outerBottom - diameter)){
             yPosition = (int)(outerBottom - diameter);
-            ySpeed = (ySpeed - (ySpeed * 2));
+            ySpeed = -ySpeed;
         }
         else if(yPosition <= outerTop) {
             yPosition = (int)(outerTop);
-            ySpeed = (ySpeed - (ySpeed * 2));           
+            ySpeed = -ySpeed;           
         }
         
         if(xPosition >= (outerRight - diameter)) {
             xPosition = (int)(outerRight - diameter);
-            xSpeed = (xSpeed - (xSpeed * 2));
+            xSpeed = -xSpeed;
         }
         else if(xPosition <= (outerLeft + 1)) {
             xPosition = (int)(outerLeft + 1);
-            xSpeed = (xSpeed - (xSpeed * 2));
+            xSpeed = -xSpeed;
         }
         //draw again at new position
         draw();
