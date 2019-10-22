@@ -11,8 +11,7 @@ import java.util.Random;
  * 
  */
 public class BoxBall
-{
-    // instance variables - replace the example below with your own
+{   
     private Ellipse2D.Double circle;
     private Color color;
     private int diameter;
@@ -24,7 +23,8 @@ public class BoxBall
     private final int outerRight;
     private Canvas canvas;    
     private int ySpeed;
-    private int xSpeed;    
+    private int xSpeed;
+    
     /**
      * Constructor for objects of class BoxBall.
      * @param xPosition starting x position of ball.
